@@ -13,7 +13,7 @@ script: mvn verify -U -Dmaven.javadoc.skip=true
 after_success:
   - util/deploy_snapshot.sh
   - util/update_snapshot_docs.sh
-
+  - bash <(curl -s https://copilot.blackducksoftware.com/ci/travis/scripts/upload)
 cache:
   directories:
   - $HOME/.m2
